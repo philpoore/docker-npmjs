@@ -5,7 +5,9 @@ MAINTAINER Phil Poore <phil@byte22.com>
 ENV PATH /opt/node/bin/:$PATH
 
 # Update
-RUN apt-get dist-upgrade
+RUN sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+RUN grep -E 'archive.ubuntu.com|security.ubuntu.com' /etc/apt/sources.list.d/*
+RUN apt-get update
 
 # Install curl
 RUN apt-get install -y curl git
