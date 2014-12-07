@@ -1,8 +1,11 @@
 # Version: 0.5.2 28-Feb-2014
 FROM sbisbee/couchdb:1.4
-MAINTAINER Terin Stock <terinjokes@gmail.com>
+MAINTAINER Phil Poore <phil@byte22.com>
 
 ENV PATH /opt/node/bin/:$PATH
+
+# Update
+RUN apt-get dist-upgrade
 
 # Install curl
 RUN apt-get install -y curl git
