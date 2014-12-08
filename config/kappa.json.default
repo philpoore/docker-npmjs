@@ -3,14 +3,11 @@
 		{
 			"host": "0.0.0.0",
 			"port": 1337
-		},{
-			"host": "0.0.0.0",
-			"port": 8000
 		}
 	],
 	"plugins": {
 		"kappa-www": {
-        		"title": "My Orgs Private NPM Browser",
+        		"title": "${hostname} NPM Browser",
         		"registry": "http://${hostname}:5984/",
         		"gitDomain": ["git.hq.byte22.com"]
 		},
