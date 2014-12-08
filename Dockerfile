@@ -33,7 +33,7 @@ RUN cd /opt/npmjs; couchdb -b; sleep 5; npm run load; sleep 5; curl -k "http://l
 RUN cd /opt/npmjs; /usr/local/bin/couchdb -b; sleep 5; curl -X PUT -H "Content-Type: application/json" -d '{ "_id": "error: forbidden", "forbidden":"must supply latest _rev to update existing package" }' http://localhost:5984/registry/error%3A%20forbidden; sleep 5; couchdb -d
 
 # Install npm-delegate
-RUN npm install -g kappa
+RUN npm install -g kappa --debug
 
 # Install bower
 RUN npm install -g bower
