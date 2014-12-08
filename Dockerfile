@@ -34,6 +34,7 @@ RUN cd /opt/npmjs; /usr/local/bin/couchdb -b; sleep 5; curl http://isaacs.irisco
 
 # Install npm-delegate
 RUN npm install -g kappa
+RUN npm install -g bower
 RUN npm install -g kappa-www
 
 # Start
