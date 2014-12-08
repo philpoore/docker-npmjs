@@ -33,7 +33,8 @@ RUN cd /opt/npmjs; couchdb -b; sleep 5; npm run load; sleep 5; curl -k "http://l
 RUN cd /opt/npmjs; /usr/local/bin/couchdb -b; sleep 5; curl http://isaacs.iriscouch.com/registry/error%3A%20forbidden | curl -X PUT -d @- http://localhost:5984/registry/error%3A%20forbidden?new_edits=false; sleep 5; couchdb -d
 
 # Install npm-delegate
-RUN npm install -g kappa@0.14.x
+RUN npm install -g kappa
+RUN npm install -g kappa-www
 
 # Start
 ADD config/kappa.json.default /opt/npmjs/kappa.json.default
