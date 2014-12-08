@@ -42,7 +42,7 @@ RUN mkdir -m 777 /.config
 RUN mkdir -m 777 /.cache
 
 # Install custom kappa-www
-RUN npm install -g git+ssh://git@github.com:philpoore/kappa-www.git
+RUN npm install -g https://github.com/philpoore/kappa-www.git
 
 RUN kappa-www clean
 
