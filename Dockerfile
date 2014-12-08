@@ -38,13 +38,11 @@ RUN npm install -g kappa --verbose
 
 # Install bower
 RUN npm install -g bower
-RUN mkdir -m 777 /.config
-RUN mkdir -m 777 /.cache
+RUN mkdir -m 777 /.config /.cache
 
 # Install custom kappa-www
-# RUN npm install -g git+https://github.com/philpoore/kappa-www.git
-
-# RUN kappa-www clean
+RUN cd /opt/; git clone https://github.com/philpoore/kappa-www.git ; npm install -g kappa-www/
+RUN kappa-www clean
 
 # Start
 ADD config/kappa.json.default /opt/npmjs/kappa.json.default
