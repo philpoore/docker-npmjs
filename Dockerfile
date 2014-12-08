@@ -30,7 +30,12 @@ RUN cd /opt/npmjs; couchdb -b; sleep 5; couchapp push registry/shadow.js http://
 RUN cd /opt/npmjs; npm set _npmjs.org:couch=http://localhost:5984/registry
 RUN cd /opt/npmjs; couchdb -b; sleep 5; npm run load; sleep 5; curl -k "http://localhost:5984/registry/_design/scratch" -X COPY -H destination:'_design/app'; sleep 5; couchdb -d
 ## Resolve isaacs/npmjs.org#98
-RUN cd /opt/npmjs; /usr/local/bin/couchdb -b; sleep 5; curl http://isaacs.iriscouch.com/registry/error%3A%20forbidden | curl -X PUT -d @- http://localhost:5984/registry/error%3A%20forbidden?new_edits=false; sleep 5; couchdb -d
+RUN cd /opt/npmjs; \
+  /usr/local/bin/couchdb -b; sleep 5; \
+  curl -X PUT -H "Content-Type: application/json" \
+    -d '{ "_id": "error: forbidden", "forbidden":"must supply latest _rev to update existing package" }' \
+    http://localhost:5984/registry/error%3A%20forbidden?new_edits=false; sleep 5; \
+  couchdb -d
 
 # Install npm-delegate
 RUN npm install -g kappa
@@ -42,6 +47,8 @@ RUN mkdir -m 777 /.cache
 
 # Install kappa-www
 RUN npm install -g kappa-www
+
+RUN kappa-www clean
 
 # Start
 ADD config/kappa.json.default /opt/npmjs/kappa.json.default
