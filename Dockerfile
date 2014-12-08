@@ -38,8 +38,8 @@ RUN npm install -g kappa --verbose
 
 # Install bower
 RUN npm install -g bower
-RUN rm -rf /.config /.cache
-RUN mkdir -m 777 /.config /.cache
+RUN rm -rf /.config /.cache /.local
+RUN mkdir -m 777 /.config /.cache /.local
 
 # Install custom kappa-www
 RUN cd /opt/; git clone https://github.com/philpoore/kappa-www.git ; npm install -g kappa-www/
