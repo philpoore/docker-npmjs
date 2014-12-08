@@ -12,8 +12,9 @@
         		"gitDomain": ["git.hq.byte22.com"]
 		},
 		"kappa": {
+			"vhost": "${hostname}",
 			"paths": [
-				"http://${hostname}:5984/",
+				"http://${hostname}:5984/registry/_design/app/_rewrite/",
 				"https://registry.npmjs.org/"
 			]
 		}
