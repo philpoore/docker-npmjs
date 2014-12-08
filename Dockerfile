@@ -41,8 +41,8 @@ RUN npm install -g bower
 RUN mkdir -m 777 /.config
 RUN mkdir -m 777 /.cache
 
-# Install kappa-www
-RUN npm install -g kappa-www
+# Install custom kappa-www
+RUN npm install -g git+ssh://git@github.com:philpoore/kappa-www.git
 
 RUN kappa-www clean
 
