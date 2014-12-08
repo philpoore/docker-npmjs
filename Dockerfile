@@ -13,7 +13,8 @@ RUN apt-get install -y curl git
 
 # Setup nodejs
 RUN mkdir -p /opt/node
-RUN curl -L# http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz|tar -zx --strip 1 -C /opt/node
+RUN curl -L# http://nodejs.org/dist/v0.11.12/node-v0.11.12-linux-x64.tar.gz | tar -zx --strip 1 -C /opt/node
+RUN curl https://www.npmjs.org/install.sh | bash
 
 # Download npmjs project
 RUN git clone https://github.com/isaacs/npmjs.org /opt/npmjs
