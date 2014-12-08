@@ -42,9 +42,9 @@ RUN mkdir -m 777 /.config
 RUN mkdir -m 777 /.cache
 
 # Install custom kappa-www
-RUN npm install -g git+https://github.com/philpoore/kappa-www.git
+# RUN npm install -g git+https://github.com/philpoore/kappa-www.git
 
-RUN kappa-www clean
+# RUN kappa-www clean
 
 # Start
 ADD config/kappa.json.default /opt/npmjs/kappa.json.default
