@@ -11,7 +11,7 @@
 	"plugins": {
 		"kappa-www": {
         		"title": "My Orgs Private NPM Browser",
-        		"registry": "http://${hostname}/",
+        		"registry": "http://${hostname}:5984/",
         		"gitDomain": ["git.hq.byte22.com"]
 		},
 		"kappa": {
